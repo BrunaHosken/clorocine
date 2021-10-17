@@ -1,4 +1,19 @@
 <?php include "cabecalho.php" ?>
+<?php
+$filme1 = [
+    "titulo" => "Vingadores",
+    "nota" => 9.7,
+    "sinopse"=>"Após os eventos devastadores de 'Vingadores: Guerra Infinita', o universo está em ruínas devido aos esforços do Titã Louco, Thanos. Com a ajuda de aliados remanescentes, os Vingadores devem se reunir mais uma vez a fim de desfazer as ações de Thanos e restaurar a ordem no universo de uma vez por todas, não importando as consequências.",
+    "poster"=>"https://www.themoviedb.org/t/p/w300/q6725aR8Zs4IwGMXzZT8aC8lh41.jpg"
+];
+$filme2 = [
+    "titulo" => "Vingadores:End Game",
+    "nota" => 9.1,
+    "sinopse"=>"Após os eventos devastadores de 'Vingadores: Guerra Infinita', o universo está em ruínas devido aos esforços do Titã Louco, Thanos. Com a ajuda de aliados remanescentes, os Vingadores devem se reunir mais uma vez a fim de desfazer as ações de Thanos e restaurar a ordem no universo de uma vez por todas, não importando as consequências.",
+    "poster"=>"https://www.themoviedb.org/t/p/w300/q6725aR8Zs4IwGMXzZT8aC8lh41.jpg"
+];
+$filmes=[$filme1,$filme2];
+?>
 
 <body>
 
@@ -20,21 +35,22 @@
         </div>
     </nav>
     <div class="row">
+        <?php foreach($filmes as $filme): ?>
         <div class="col s3">
             <div class="card hoverable">
                 <div class="card-image">
-                    <img src="https://www.themoviedb.org/t/p/w300/q6725aR8Zs4IwGMXzZT8aC8lh41.jpg">
+                    <img src=<?= $filme["poster"] ?>>
 
                     <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite_border</i></a>
                 </div>
                 <div class="card-content">
-                    <p class="valign-wrapper"><i class="material-icons amber-text">star</i>9,7</p>
-                    <span class="card-title">Vingadores</span>
-                    <p>Após os eventos devastadores de "Vingadores: Guerra Infinita", o universo está em ruínas devido aos esforços do Titã Louco, Thanos. Com a ajuda de aliados remanescentes, os Vingadores devem se reunir mais uma vez a fim de desfazer as ações de Thanos e restaurar a ordem no universo de uma vez por todas, não importando as consequências.</p>
+                    <p class="valign-wrapper"><i class="material-icons amber-text">star</i><?= $filme["nota"] ?></p>
+                    <span class="card-title"><?= $filme["titulo"] ?></span>
+                    <p><?= $filme["sinopse"] ?></p>
                 </div>
             </div>
         </div>
-
+        <?php endforeach ?> 
     </div>
 
 </body>
